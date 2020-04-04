@@ -26,5 +26,20 @@ public class TrCanviSouEmpleat extends Transaccio {
 	public void executa(Gestor g) throws DOEmpleatNoExisteix, DOSouSupera2000 {
 
 		/* per implementar */
+		Empleat e = new Empleat();
+		EntityManager em = g.getEntityManager();
+		IntCtrlEmpleats ice = CtrlFabrica.obteCtrlEmpleat();
+		try {
+			e = ice.obte(em,idEmpl);
+		} catch (EmpleatNoExisteix empleatNoExisteix) {
+			throw new DOEmpleatNoExisteix();
+		}
+
+		try {
+			e.incrementaSou(incrSou);
+		} catch (SouSupera2000 souSupera2000) {
+			throw new DOSouSupera2000();
+		}
+
 	}
-	}
+}

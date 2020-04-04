@@ -1,6 +1,7 @@
 package domini.model;
 
 import dades.excepcions.SouSupera2000;
+import domini.excepcions.DOSouSupera2000;
 
 import javax.persistence.*;
 import java.util.List;
@@ -65,7 +66,8 @@ public class Empleat {
         this.departament = departament;
     }
 
-    public void incrementaSou(int incr){
-
+    public void incrementaSou(int incr) throws SouSupera2000 {
+        if((this.souE += incr) > 2000) throw new SouSupera2000();
+        else this.souE += incr;
     }
 }
