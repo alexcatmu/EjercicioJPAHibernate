@@ -30,7 +30,17 @@ public class TrTotalSouEmpleats extends Transaccio {
 	public void executa(Gestor g) throws DODepartamentNoExisteix {
 
 		/* per implementar */
+		Departament departament = new Departament();
+		EntityManager em = g.getEntityManager();
+		IntCtrlDepartament icd = CtrlFabrica.obteCtrlDepartament();
+		try {
+			departament = icd.obte(em, idDept);
+		} catch (DepartamentNoExisteix departamentNoExisteix) {
+			throw new DODepartamentNoExisteix();
+		}
 
+		this.nomD = departament.getNomDept();
+		this.totalSous = departament.donaTotalSou();
 	}
 	
 	public int donaTotalSou() {

@@ -11,8 +11,8 @@ import java.util.List;
  */
 
 @Entity
-@Table(name = "Empleat")
-@NamedQuery(name = "Empleat.findAll", query = "SELECT e FROM Empleat e")
+@Table(name = "empleats")
+//@NamedQuery(name = "empleats.findAll", query = "SELECT e FROM empleats e")
 public class Empleat {
 
    /* per implementar */
@@ -66,6 +66,6 @@ public class Empleat {
     }
 
     public void incrementaSou(int incr){
-        
+
     }
 }

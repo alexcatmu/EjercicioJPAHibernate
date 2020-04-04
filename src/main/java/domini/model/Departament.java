@@ -9,8 +9,8 @@ import java.util.*;
  * 
  */
 @Entity
-@Table(name = "Departament")
-@NamedQuery(name = "Departament.findAll", query = "SELECT d FROM Departament d")
+@Table(name = "departaments")
+//@NamedQuery(name = "departaments.findAll", query = "SELECT d FROM departaments d")
 public class Departament {
 
        /* per implementar */
@@ -21,8 +21,8 @@ public class Departament {
     private String edificiD;
     private String ciutatD;
 
-    @OneToMany(mappedBy = "empleat", fetch = FetchType.EAGER)
-    private Set<Empleat> empleats;
+    @OneToMany(mappedBy = "departament", fetch = FetchType.EAGER)
+    private Set<Empleat> empleat;
 
     public Integer getNumDept() {
         return numDept;
@@ -64,15 +64,19 @@ public class Departament {
         this.ciutatD = ciutatD;
     }
 
-    public Set<Empleat> getEmpleats() {
-        return empleats;
+    public Set<Empleat> getEmpleat() {
+        return empleat;
     }
 
-    public void setEmpleats(Set<Empleat> empleats) {
-        this.empleats = empleats;
+    public void setEmpleat(Set<Empleat> empleat) {
+        this.empleat = empleat;
     }
 
     public Integer donaTotalSou(){
-        return 0;
+        int totalSou = 0;
+        for(Empleat e: this.empleat){
+            totalSou += e.getSouE();
+        }
+        return totalSou;
     }
 }
