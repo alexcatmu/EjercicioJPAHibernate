@@ -73,7 +73,6 @@ public class Departament {
     }
 
     public Integer donaTotalSou(){
-
         return 0;
     }
 }

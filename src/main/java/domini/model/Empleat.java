@@ -64,4 +64,8 @@ public class Empleat {
     public void setDepartament(Departament departament) {
         this.departament = departament;
     }
+
+    public void incrementaSou(int incr){
+        
+    }
 }
