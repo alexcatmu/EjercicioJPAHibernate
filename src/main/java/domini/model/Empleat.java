@@ -10,6 +10,9 @@ import java.util.List;
  * 
  */
 
+@Entity
+@Table(name = "Empleat")
+@NamedQuery(name = "Empleat.findAll", query = "SELECT e FROM Empleat e")
 public class Empleat {
 
    /* per implementar */
@@ -19,6 +22,7 @@ public class Empleat {
     private Integer souE;
     private String ciutatE;
 
+    @ManyToOne(fetch = FetchType.EAGER)
     private Departament departament;
 
     public Integer getNumEmpl() {
